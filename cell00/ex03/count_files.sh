@@ -1,1 +1,2 @@
-find . -maxdepth 1 -type f | wc -l
+#!/bin/sh
+echo find . -maxdepth 1 -type f | wc -l
