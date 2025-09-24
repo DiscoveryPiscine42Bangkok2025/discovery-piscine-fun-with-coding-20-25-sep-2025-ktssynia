@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.div1,
+.div2 {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    border: 1px;
+    border-style: solid;
+}
+
+.div1 {
+    position: absolute;
+    background-color: rgb(177, 255, 177);
+    left: 0%;
+}
+
+.div2 {
+    position: absolute;
+    background-color: rgb(255, 183, 183);
+    left: 50%;
+
+}
+
+.p1,
+.p2 {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+}
