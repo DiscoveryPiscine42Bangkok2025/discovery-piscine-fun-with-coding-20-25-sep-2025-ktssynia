@@ -10,21 +10,39 @@
             padding: 0;
         }
         html, body {
-        height: 100%;
-        }
-        .div1 {
-            background-color: green;
-            width: 50%;
             height: 100%;
         }
-        .p1{
-            top : 500px;
+        .div1,.div2{
+            width: 50%;
+            height: 100%;
+            position: relative;
+            border: 1px;
+            border-style: solid;
+        }
+        .div1 {
+            position: absolute;
+            background-color: rgb(177, 255, 177);  
+            left :0%;
+        }   
+        .div2 {
+            position: absolute;
+            background-color: rgb(255, 183, 183);  
+            left: 50%;
+            
+        }
+        .p1,.p2{
+            position: absolute;
+            top: 50%;
+            left: 0%;
         }
     </style>
 </head>
 <body>
     <div class="div1">
         <p class="p1"> First Cell </p>
+    </div>
+    <div class="div2">
+        <p class="p2"> Second Cell </p>
     </div>
 </body>
 </html>
