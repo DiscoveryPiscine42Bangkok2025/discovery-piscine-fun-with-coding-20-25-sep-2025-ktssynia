@@ -6,7 +6,7 @@ function setCookie(name, value, days = 365) {
 }
 function getCookie(name) {
     const key = name + "=";
-    const parts = document.cookie.split(";"); // [" a=b", " c=d", ...]
+    const parts = document.cookie.split(";"); 
     for (let p of parts) {
         p = p.trim();
         if (p.indexOf(key) === 0) return decodeURIComponent(p.substring(key.length));
