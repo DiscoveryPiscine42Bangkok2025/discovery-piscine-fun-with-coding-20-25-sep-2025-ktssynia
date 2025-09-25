@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Balloon</title>
+    <style>
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background: red;
+            border-radius: 50%;
+            margin: 40px;
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon" title="click to grow, move mouse out to shrink"></div>
+
+    <script>
+        const balloon = document.getElementById('balloon');
+
+        let size = 200;
+        const minSize = 200;
+        const maxSize = 420;
+        const colors = ['red', 'green', 'blue'];
+        let idx = 0;
+
+        function render() {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+            balloon.style.backgroundColor = colors[idx];
+        }
+
+        balloon.addEventListener('click', function () {
+            size += 10;
+            if (size > maxSize) {
+                size = minSize;
+                idx = 0;
+            } else {
+                idx = (idx + 1) % colors.length;
+            }
+            render();
+        });
+
+        balloon.addEventListener('mouseleave', function () {
+            size = Math.max(minSize, size - 5);
+            idx = (idx - 1 + colors.length) % colors.length;
+            render();
+        });
+
+        render();
+    </script>
+</body>
+
+</html>

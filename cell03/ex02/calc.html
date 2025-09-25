@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>It’s over 9000</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input,
+        select {
+            padding: 6px;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Basic Calculator</h3>
+
+    <input id="left" type="text" placeholder="left (>=0)">
+    <select id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input id="right" type="text" placeholder="right (>=0)">
+    <input id="go" type="submit" value="Try me!">
+
+    <script>
+        setInterval(function () {
+            alert("Please, use me...");
+        }, 30000);
+
+        const L = document.getElementById('left');
+        const R = document.getElementById('right');
+        const OP = document.getElementById('op');
+        const BTN = document.getElementById('go');
+
+        function isNonNegInt(s) {
+            return /^\d+$/.test(s);
+        }
+
+        BTN.addEventListener('click', function () {
+            const aStr = L.value.trim();
+            const bStr = R.value.trim();
+
+            if (!isNonNegInt(aStr) || !isNonNegInt(bStr)) {
+                alert('Error :(');
+                return;
+            }
+
+            const a = parseInt(aStr, 10);
+            const b = parseInt(bStr, 10);
+            const op = OP.value;
+
+            if ((op === '/' || op === '%') && b === 0) {
+                alert("It's over 9000!");
+                console.log("It's over 9000!");
+                return;
+            }
+
+            let result;
+
+            if (op === '+') result = a + b;
+            else if (op === '-') result = a - b;
+            else if (op === '*') result = a * b;
+            else if (op === '/') result = a / b;
+            else if (op === '%') result = a % b;
+
+            alert(result);
+            console.log(result);
+        });
+    </script>
+</body>
+
+</html>
